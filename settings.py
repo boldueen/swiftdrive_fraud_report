@@ -18,6 +18,8 @@ MAIL_PASS=os.environ.get("MAIL_PASS")
 PWD = os.environ.get("PWD")
 HOME = os.environ.get("HOME")
 
+G_SETTINGS_FILEPATH = 'google_sheet_settings.json'
+
 
 
 def chmod_to_geckodriver(geckodriver_filepath) -> bool:
