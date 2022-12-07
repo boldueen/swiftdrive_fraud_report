@@ -12,5 +12,10 @@ def set_df_to_gsheet(data: pd.DataFrame):
     exist_sheet = g_worksheet.get_as_df(include_tailing_empty=False)
     start_row = len(exist_sheet) + 2
 
-    g_worksheet.set_dataframe(data, (start_row ,1), extend=True)
+
+    # TODO set titles
+
+    g_worksheet.set_dataframe(data, (start_row ,1), extend=True, copy_head=False)
+
+    return sh.url
     
