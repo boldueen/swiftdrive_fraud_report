@@ -20,6 +20,8 @@ HOME = os.environ.get("HOME")
 
 G_SETTINGS_FILEPATH = 'google_sheet_settings.json'
 
+RECIPIENT_EMAILS = ['nikon2283@gmail.com']
+
 
 
 def chmod_to_geckodriver(geckodriver_filepath) -> bool:
