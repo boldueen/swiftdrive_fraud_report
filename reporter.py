@@ -18,7 +18,7 @@ def create_report_from_orders(orders_filepath: str):
 
 
     test = df[df['Стоимость'] > 2000]
-    test.info()
+
     return test
         
 
