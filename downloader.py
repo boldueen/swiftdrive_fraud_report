@@ -34,7 +34,7 @@ def download_orders_file(start_date:str, end_date:str) -> str:
 
     driver.get('https://swiftdrive.ru/auth/signin')
 
-    logger.info("start auth")
+    logger.info("auth started")
     time.sleep(5)
 
     email = driver.find_element(By.XPATH, "/html/body/div/div/div[1]/div/div/div[2]/form/fieldset/div[1]/div/div/input")
@@ -48,7 +48,7 @@ def download_orders_file(start_date:str, end_date:str) -> str:
     button = driver.find_element(By.XPATH, '//*[@id="app-site"]/div/div[1]/div/div/div[2]/form/fieldset/div[3]/button')
     button.click()
 
-    logger.info("auth complete")
+    logger.success("auth completed")
 
 
     
@@ -73,11 +73,10 @@ def download_orders_file(start_date:str, end_date:str) -> str:
     driver.find_element(By.XPATH, '//*[contains(text(), "Экспорт")]').click()
     driver.find_element(By.XPATH, '//*[contains(text(), "Экспортировать")]').click()
 
+    logger.info("file downloading started")
 
-    new_list_of_files = glob.glob(f'{DOWNLOAD_PATH}*.xlsx') # * means all if need specific format then *.csv
+    new_list_of_files = glob.glob(f'{DOWNLOAD_PATH}*.xlsx') 
     
-
-
     while len(old_list_of_files) == len(new_list_of_files):
         new_list_of_files = glob.glob(f'{DOWNLOAD_PATH}*.xlsx')
         
@@ -85,7 +84,7 @@ def download_orders_file(start_date:str, end_date:str) -> str:
 
     new_file = (set(new_list_of_files) - set(old_list_of_files)).pop()
 
-    logger.info("file downloaded")
+    logger.success("file downloaded")
 
     time.sleep(1)
 
