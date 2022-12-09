@@ -14,6 +14,8 @@ def set_df_to_gsheet(data: pd.DataFrame):
 
 
     # TODO set titles
+    titles_df = pd.DataFrame(columns=data.columns.values)
+    # g_worksheet.set_dataframe(titles_df, (1 ,1), extend=True)
 
     g_worksheet.set_dataframe(data, (start_row ,1), extend=True, copy_head=False)
 
