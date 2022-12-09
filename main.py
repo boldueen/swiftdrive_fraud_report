@@ -24,14 +24,10 @@ if __name__ == "__main__":
     chmod_to_geckodriver('./utils/geckodriver')
 
     orders_filepath = download_orders_file(start_date, today_date)
+
     fraud_rides = create_report_from_orders(orders_filepath)
     url = set_df_to_gsheet(fraud_rides)  
     
     for recipient_email in RECIPIENT_EMAILS:
         send_fraud_report_on_mail(recipient_email, url)
-
-    
-
-
-    # TODO correct create report
 
